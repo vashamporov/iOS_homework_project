@@ -55,7 +55,7 @@
     return cell;
 }
 
-- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+/*- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"ShowContactDetailsSegue"])
     {
@@ -64,5 +64,5 @@
         dest.contact=[ContactDataArr objectAtIndex:indexPath.row];
         indexPath=indexPath;
     }
-}
+}*/
 @end

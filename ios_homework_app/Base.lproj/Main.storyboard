@@ -39,7 +39,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="epH-Eq-HSO" kind="show" identifier="ShowContactDetailsSegue" id="LF2-Vg-SJc"/>
+                                    <segue destination="epH-Eq-HSO" kind="show" identifier="" id="LF2-Vg-SJc"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -88,20 +88,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PQg-3j-iKv" userLabel="LastNameTextField">
-                                <frame key="frameInset" minX="27" minY="458" width="300" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Sbh-hr-biP" userLabel="PhoneNumberTextField">
-                                <frame key="frameInset" minX="26" minY="561" width="301" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Phone Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a8r-ER-2LZ">
                                 <frame key="frameInset" minX="26" minY="532" width="115" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -109,29 +95,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DAR-Vq-fKN" userLabel="FirstNameTextField">
-                                <frame key="frameInset" minX="27" minY="355" width="300" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <connections>
-                            <outlet property="firstNameOutlet" destination="DAR-Vq-fKN" id="Eua-RE-IO7"/>
-                            <outlet property="lastNameOutlet" destination="PQg-3j-iKv" id="rou-dX-nRX"/>
-                            <outlet property="phoneNumberOutlet" destination="Sbh-hr-biP" id="hzo-Bz-Je6"/>
-                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="ExistingContact" id="DGT-aA-VAh">
                         <barButtonItem key="rightBarButtonItem" title="Edit" id="amf-GD-HXJ"/>
                     </navigationItem>
-                    <connections>
-                        <outlet property="firstNameOutlet" destination="DAR-Vq-fKN" id="Rgw-yg-zXc"/>
-                        <outlet property="lastNameOutlet" destination="PQg-3j-iKv" id="Cgi-P8-Wa0"/>
-                        <outlet property="phoneNumberOutlet" destination="Sbh-hr-biP" id="GD3-gJ-mlq"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZQb-pX-zHy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

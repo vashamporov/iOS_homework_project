@@ -13,5 +13,5 @@
 //@property (weak, nonatomic) IBOutlet UITextField *firstNameOutlet;
 //@property (weak, nonatomic) IBOutlet UITextField *lastNameOutlet;
 //@property (weak, nonatomic) IBOutlet UITextField *phoneNumberOutlet;
-@property (strong, nonatomic) ContactData* contact;
+//@property (strong, nonatomic) ContactData* contact;
 @end

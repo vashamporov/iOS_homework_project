@@ -13,8 +13,8 @@
 //@synthesize firstNameOutlet;
 //@synthesize lastNameOutlet;
 //@synthesize phoneNumberOutlet;
-//@synthesize contact;
-
+@synthesize contact;
+@synthesize foo;
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
@@ -22,12 +22,13 @@
     // Drawing code
 }
 */
-/*- (void)viewDidLoad
+- (void)viewDidLoad
 {
     [super viewDidLoad];
- //   firstNameOutlet.text=contact.firstName;
- //   lastNameOutlet.text=contact.lastName;
- //   phoneNumberOutlet.text=contact.lastName;
+    foo=contact.firstName;
+    //firstNameOutlet.text=contact.firstName;
+    //lastNameOutlet.text=contact.lastName;
+    //phoneNumberOutlet.text=contact.lastName;
     
-}*/
+}
 @end

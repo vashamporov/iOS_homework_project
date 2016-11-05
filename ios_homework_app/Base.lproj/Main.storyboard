@@ -39,7 +39,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="epH-Eq-HSO" kind="show" identifier="" id="LF2-Vg-SJc"/>
+                                    <segue destination="epH-Eq-HSO" kind="show" identifier="ShowContactDetailsSegue" id="LF2-Vg-SJc"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

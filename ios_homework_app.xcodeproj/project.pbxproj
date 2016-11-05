@@ -9,11 +9,14 @@
 /* Begin PBXBuildFile section */
 		844E389F1DCDFABA00894BD9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 844E389E1DCDFABA00894BD9 /* main.m */; };
 		844E38A21DCDFABA00894BD9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 844E38A11DCDFABA00894BD9 /* AppDelegate.m */; };
-		844E38A51DCDFABA00894BD9 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 844E38A41DCDFABA00894BD9 /* FirstViewController.m */; };
-		844E38A81DCDFABA00894BD9 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 844E38A71DCDFABA00894BD9 /* SecondViewController.m */; };
 		844E38AB1DCDFABA00894BD9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 844E38A91DCDFABA00894BD9 /* Main.storyboard */; };
 		844E38AD1DCDFABA00894BD9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 844E38AC1DCDFABA00894BD9 /* Assets.xcassets */; };
 		844E38B01DCDFABA00894BD9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 844E38AE1DCDFABA00894BD9 /* LaunchScreen.storyboard */; };
+		847F0C581DCE3E58004EDABE /* NewContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 847F0C571DCE3E58004EDABE /* NewContactViewController.m */; };
+		847F0C5B1DCE420A004EDABE /* ExistingContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 847F0C5A1DCE420A004EDABE /* ExistingContactViewController.m */; };
+		84E88D201DCE14900026AA89 /* ContactListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E88D1F1DCE14900026AA89 /* ContactListTableViewController.m */; };
+		84E88D231DCE15850026AA89 /* ContactTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E88D221DCE15850026AA89 /* ContactTableViewCell.m */; };
+		84E88D261DCE23DA0026AA89 /* ContactData.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E88D251DCE23DA0026AA89 /* ContactData.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,14 +24,20 @@
 		844E389E1DCDFABA00894BD9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		844E38A01DCDFABA00894BD9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		844E38A11DCDFABA00894BD9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		844E38A31DCDFABA00894BD9 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		844E38A41DCDFABA00894BD9 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
-		844E38A61DCDFABA00894BD9 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		844E38A71DCDFABA00894BD9 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		844E38AA1DCDFABA00894BD9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		844E38AC1DCDFABA00894BD9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		844E38AF1DCDFABA00894BD9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		844E38B11DCDFABA00894BD9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		847F0C561DCE3E58004EDABE /* NewContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewContactViewController.h; path = ios_homework_app/NewContactViewController.h; sourceTree = SOURCE_ROOT; };
+		847F0C571DCE3E58004EDABE /* NewContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewContactViewController.m; path = ios_homework_app/NewContactViewController.m; sourceTree = SOURCE_ROOT; };
+		847F0C591DCE420A004EDABE /* ExistingContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExistingContactViewController.h; sourceTree = "<group>"; };
+		847F0C5A1DCE420A004EDABE /* ExistingContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExistingContactViewController.m; sourceTree = "<group>"; };
+		84E88D1E1DCE14900026AA89 /* ContactListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContactListTableViewController.h; path = /Users/admin/Desktop/ios_homework_app/ios_homework_app/ContactListTableViewController.h; sourceTree = "<absolute>"; };
+		84E88D1F1DCE14900026AA89 /* ContactListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ContactListTableViewController.m; path = /Users/admin/Desktop/ios_homework_app/ios_homework_app/ContactListTableViewController.m; sourceTree = "<absolute>"; };
+		84E88D211DCE15850026AA89 /* ContactTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactTableViewCell.h; sourceTree = "<group>"; };
+		84E88D221DCE15850026AA89 /* ContactTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactTableViewCell.m; sourceTree = "<group>"; };
+		84E88D241DCE23DA0026AA89 /* ContactData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactData.h; sourceTree = "<group>"; };
+		84E88D251DCE23DA0026AA89 /* ContactData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactData.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,16 +70,22 @@
 		844E389C1DCDFABA00894BD9 /* ios_homework_app */ = {
 			isa = PBXGroup;
 			children = (
+				847F0C591DCE420A004EDABE /* ExistingContactViewController.h */,
+				847F0C5A1DCE420A004EDABE /* ExistingContactViewController.m */,
 				844E38A01DCDFABA00894BD9 /* AppDelegate.h */,
 				844E38A11DCDFABA00894BD9 /* AppDelegate.m */,
-				844E38A31DCDFABA00894BD9 /* FirstViewController.h */,
-				844E38A41DCDFABA00894BD9 /* FirstViewController.m */,
-				844E38A61DCDFABA00894BD9 /* SecondViewController.h */,
-				844E38A71DCDFABA00894BD9 /* SecondViewController.m */,
 				844E38A91DCDFABA00894BD9 /* Main.storyboard */,
+				84E88D211DCE15850026AA89 /* ContactTableViewCell.h */,
+				847F0C561DCE3E58004EDABE /* NewContactViewController.h */,
+				847F0C571DCE3E58004EDABE /* NewContactViewController.m */,
 				844E38AC1DCDFABA00894BD9 /* Assets.xcassets */,
-				844E38AE1DCDFABA00894BD9 /* LaunchScreen.storyboard */,
+				84E88D221DCE15850026AA89 /* ContactTableViewCell.m */,
+				84E88D241DCE23DA0026AA89 /* ContactData.h */,
+				84E88D251DCE23DA0026AA89 /* ContactData.m */,
 				844E38B11DCDFABA00894BD9 /* Info.plist */,
+				84E88D1F1DCE14900026AA89 /* ContactListTableViewController.m */,
+				84E88D1E1DCE14900026AA89 /* ContactListTableViewController.h */,
+				844E38AE1DCDFABA00894BD9 /* LaunchScreen.storyboard */,
 				844E389D1DCDFABA00894BD9 /* Supporting Files */,
 			);
 			path = ios_homework_app;
@@ -155,9 +170,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				844E38A81DCDFABA00894BD9 /* SecondViewController.m in Sources */,
+				847F0C581DCE3E58004EDABE /* NewContactViewController.m in Sources */,
+				847F0C5B1DCE420A004EDABE /* ExistingContactViewController.m in Sources */,
+				84E88D201DCE14900026AA89 /* ContactListTableViewController.m in Sources */,
+				84E88D231DCE15850026AA89 /* ContactTableViewCell.m in Sources */,
 				844E38A21DCDFABA00894BD9 /* AppDelegate.m in Sources */,
-				844E38A51DCDFABA00894BD9 /* FirstViewController.m in Sources */,
+				84E88D261DCE23DA0026AA89 /* ContactData.m in Sources */,
 				844E389F1DCDFABA00894BD9 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -313,6 +331,7 @@
 				844E38B61DCDFABA00894BD9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

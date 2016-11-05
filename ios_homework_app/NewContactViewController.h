@@ -1,5 +1,5 @@
 //
-//  FirstViewController.h
+//  NewContactView.h
 //  ios_homework_app
 //
 //  Created by Admin on 05/11/2016.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FirstViewController : UIViewController
-
+@interface NewContactViewController : UIViewController
 
 @end
-

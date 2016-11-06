@@ -27,7 +27,7 @@
         ContactDataArr = [[NSMutableArray alloc] init];
         ContactData* obj=[[ContactData alloc] init];
         obj.firstName=@"Ivan";
-        obj.lastName=@"Dranko";
+        obj.lastName=@"Danko";
         obj.phoneNumber=@"+79105861337";
         [ContactDataArr addObject:obj];
         
@@ -40,11 +40,18 @@
 }
 - (void) viewWillAppear:(BOOL)animated
 {
+    [ContactDataArr sortUsingComparator:^NSComparisonResult(ContactData* a, ContactData* b)
+     {
+         NSString* first=[a lastName];
+         NSString* second=[b lastName];
+         return [first compare:second];
+     }];
     [self.tableView reloadData];
 }
 -(void) newContactData:(ContactData *)contact
 {
     [ContactDataArr addObject:contact];
+    
 }
 - (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -71,8 +78,8 @@
     {
         NSIndexPath* indexPath=[self.tableView indexPathForSelectedRow];
         ExistingContactViewController* dest=segue.destinationViewController;
-        dest.contact=[ContactDataArr objectAtIndex:indexPath.row];
-        indexPath=indexPath;
+        dest.ContactArrRef=ContactDataArr;
+        dest.index=indexPath.row;
     }
     if ([segue.identifier isEqualToString:@"NewContactSegue"])
     {

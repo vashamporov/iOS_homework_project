@@ -9,5 +9,5 @@
 #import "BasicData.h"
 
 @interface ContactData : BasicData
-
+@property NSString* imagePath;
 @end

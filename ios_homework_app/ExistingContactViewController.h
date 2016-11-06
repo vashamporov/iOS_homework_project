@@ -15,6 +15,11 @@
 @property (weak, nonatomic) IBOutlet UITextField *phoneNumberOutlet;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *saveEditButtonLabel;
 @property (weak, nonatomic) IBOutlet UINavigationItem *ExistingContactTitle;
+@property (strong, nonatomic) NSMutableArray* ContactArrRef;
 @property (strong, nonatomic) ContactData* contact;
+@property NSInteger index;
+@property (weak, nonatomic) IBOutlet UIImageView *contactImageOutlet;
+@property (weak, nonatomic) IBOutlet UIButton *editImageButton;
+@property (weak, nonatomic) IBOutlet UIButton *deleteContactButton;
 @property BOOL editMode;
 @end

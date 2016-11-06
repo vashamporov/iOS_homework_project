@@ -23,20 +23,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    if (!ContactDataArr) {
-        ContactDataArr = [[NSMutableArray alloc] init];
-        ContactData* obj=[[ContactData alloc] init];
-        obj.firstName=@"Ivan";
-        obj.lastName=@"Danko";
-        obj.phoneNumber=@"+79105861337";
-        [ContactDataArr addObject:obj];
-        
-        ContactData* obj2=[[ContactData alloc] init];
-        obj2.firstName=@"John";
-        obj2.lastName=@"Kruger";
-        obj2.phoneNumber=@"+79115861337";
-        [ContactDataArr addObject:obj2];
-    }
+    AppDelegate* appDelegate=(AppDelegate*) [[UIApplication sharedApplication] delegate];
+    if (!ContactDataArr) ContactDataArr=[appDelegate ContactDataArrBase];
+
 }
 - (void) viewWillAppear:(BOOL)animated
 {

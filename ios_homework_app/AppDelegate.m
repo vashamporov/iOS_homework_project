@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "ContactData.h"
 
 @interface AppDelegate ()
 
@@ -14,11 +15,35 @@
 
 @implementation AppDelegate
 @synthesize CallLogArr;
+@synthesize ContactDataArrBase;
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    
+    NSString *callLogFile = [documentsDirectory stringByAppendingPathComponent:@"CallLog.dat"];
+    /*if (!CallLogArr) CallLogArr=[[NSMutableArray alloc] initWithContentsOfFile:callLogFile];
+    
+    NSString *contactsFile = [documentsDirectory stringByAppendingPathComponent:@"Contacts.dat"];
+    if (!ContactDataArrBase) ContactDataArrBase=[[NSMutableArray alloc] initWithContentsOfFile:contactsFile];*/
     if (!CallLogArr) CallLogArr=[[NSMutableArray alloc] init];
+    if (!ContactDataArrBase) {
+        ContactDataArrBase = [[NSMutableArray alloc] init];
+        ContactData* obj=[[ContactData alloc] init];
+        obj.firstName=@"Ivan";
+        obj.lastName=@"Danko";
+        obj.phoneNumber=@"+79105861337";
+        [ContactDataArrBase addObject:obj];
+        
+        ContactData* obj2=[[ContactData alloc] init];
+        obj2.firstName=@"John";
+        obj2.lastName=@"Kruger";
+        obj2.phoneNumber=@"+79115861337";
+        [ContactDataArrBase addObject:obj2];
+    }
+
     return YES;
 }
 
@@ -64,11 +89,27 @@
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    /*NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    
+    NSString *callLogFile = [documentsDirectory stringByAppendingPathComponent:@"CallLog.dat"];
+    [CallLogArr writeToFile:callLogFile atomically:YES];
+    
+    NSString *contactsFile = [documentsDirectory stringByAppendingPathComponent:@"Contacts.dat"];
+    [ContactDataArrBase writeToFile:contactsFile atomically:YES];*/
 }
 
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+    /*NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    
+    NSString *callLogFile = [documentsDirectory stringByAppendingPathComponent:@"CallLog.dat"];
+    CallLogArr=[[NSMutableArray alloc] initWithContentsOfFile:callLogFile];
+    
+    NSString *contactsFile = [documentsDirectory stringByAppendingPathComponent:@"Contacts.dat"];
+    ContactDataArrBase=[[NSMutableArray alloc] initWithContentsOfFile:contactsFile];*/
 }
 
 
@@ -79,6 +120,14 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    
+    NSString *callLogFile = [documentsDirectory stringByAppendingPathComponent:@"CallLog.dat"];
+    [CallLogArr writeToFile:callLogFile atomically:YES];
+    
+    NSString *contactsFile = [documentsDirectory stringByAppendingPathComponent:@"Contacts.dat"];
+    [ContactDataArrBase writeToFile:contactsFile atomically:YES];
 }
 
 

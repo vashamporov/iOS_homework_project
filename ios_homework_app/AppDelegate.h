@@ -14,6 +14,7 @@
 -(void) outgoingCall: (BasicData*) basicContact atController : (UIViewController*) viewController;
 @property (strong, nonatomic) UIWindow *window;
 @property (strong) NSMutableArray* CallLogArr;
+@property (strong) NSMutableArray* ContactDataArrBase;
 
 
 @end

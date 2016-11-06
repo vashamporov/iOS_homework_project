@@ -81,6 +81,8 @@
     firstNameOutlet.enabled=NO;
     lastNameOutlet.enabled=NO;
     phoneNumberOutlet.enabled=NO;
+    contactImageOutlet.image=[UIImage imageWithContentsOfFile:contact.imagePath];
+    
     
 }
 @end

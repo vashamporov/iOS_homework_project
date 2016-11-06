@@ -7,7 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ContactData.h"
+
+@protocol NewContactDelegate <NSObject>
+@required
+- (void) newContactData: (ContactData*) contact;
+@end
 
 @interface NewContactViewController : UIViewController
+@property (weak, nonatomic) id<NewContactDelegate> delegate;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *NewContactSaveButton;
+@property (weak, nonatomic) IBOutlet UITextField *firstNameOutlet;
+@property (weak, nonatomic) IBOutlet UITextField *lastNameOutlet;
+@property (weak, nonatomic) IBOutlet UITextField *phoneNumberOutlet;
 
 @end

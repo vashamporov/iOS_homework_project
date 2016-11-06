@@ -37,6 +37,15 @@
         [ContactDataArr addObject:obj2];
     }
 }
+- (void) viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.tableView reloadData];
+}
+-(void) newContactData:(ContactData *)contact
+{
+    [ContactDataArr addObject:contact];
+}
 - (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
@@ -64,5 +73,30 @@
         dest.contact=[ContactDataArr objectAtIndex:indexPath.row];
         indexPath=indexPath;
     }
+    if ([segue.identifier isEqualToString:@"NewContactSegue"])
+    {
+        NewContactViewController* dest=segue.destinationViewController;
+        dest.delegate=self;
+    }
 }
+- (void) OutgoingCall:(ContactData*)CallContact
+{
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Outgoing Call"                                                                   message:[NSString stringWithFormat:@"Calling %@ %@...\n%@", CallContact.firstName, CallContact.lastName, CallContact.phoneNumber]                                                           preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {}];
+    
+    [alert addAction:defaultAction];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+- (IBAction)CallButtonPressed:(id)sender {
+    
+    CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:self.tableView];
+    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonPosition];
+    
+    ContactData* CallContact=[ContactDataArr objectAtIndex:indexPath.row];
+    OutgoingCall:CallContact;
+    
+}
+
+
 @end

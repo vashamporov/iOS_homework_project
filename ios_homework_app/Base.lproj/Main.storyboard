@@ -3,6 +3,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -13,13 +15,13 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" id="ph0-lf-4Ic">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.90412463340000004" green="0.92913756560000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" tag="100" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TestCell" rowHeight="60" id="B98-ey-Mog" customClass="ContactTableViewCell">
                                 <rect key="frame" x="0.0" y="92" width="375" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="B98-ey-Mog" id="y25-In-WkF">
-                                    <frame key="frameInset" width="375" height="60"/>
+                                    <frame key="frameInset" width="375" height="59"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rwD-Sg-te9">
@@ -30,14 +32,29 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="200" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Phone" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UfZ-kZ-PpJ">
-                                            <frame key="frameInset" minX="26" minY="30" width="213" height="21"/>
+                                            <frame key="frameInset" minX="26" minY="30" width="239" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j2t-zV-FOL" userLabel="Call Button">
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="50" id="35a-SN-6lY"/>
+                                                <constraint firstAttribute="height" constant="50" id="6Au-HG-uxo"/>
+                                            </constraints>
+                                            <state key="normal" image="Call"/>
+                                            <connections>
+                                                <action selector="CallButtonPressed:" destination="Ovw-AE-zm0" eventType="touchUpInside" id="A7d-bi-bQE"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="j2t-zV-FOL" firstAttribute="centerX" secondItem="y25-In-WkF" secondAttribute="trailingMargin" constant="-30" id="4H9-Db-SjU"/>
+                                        <constraint firstItem="j2t-zV-FOL" firstAttribute="centerY" secondItem="y25-In-WkF" secondAttribute="centerYWithinMargins" id="XcF-Ih-1cL"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.90412463340000004" green="0.92913756560000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <segue destination="epH-Eq-HSO" kind="show" identifier="ShowContactDetailsSegue" id="LF2-Vg-SJc"/>
                                 </connections>
@@ -52,7 +69,7 @@
                     <navigationItem key="navigationItem" title="Contacts List" id="rmT-hu-IXR" userLabel="ContactsList">
                         <barButtonItem key="rightBarButtonItem" image="PlusSign" id="6Bz-Na-dTC" userLabel="AddNewContact">
                             <connections>
-                                <segue destination="IMu-Fx-0kV" kind="show" identifier="AddNewContactSegue" id="nHu-dG-Nq5"/>
+                                <segue destination="IMu-Fx-0kV" kind="show" identifier="NewContactSegue" id="nHu-dG-Nq5"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -106,6 +123,7 @@
                                 <frame key="frameInset" minX="20" minY="561" width="327" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="1lX-bf-7ND" userLabel="FirstNameTextField">
@@ -116,10 +134,14 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.90412463340000004" green="0.92913756560000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="ExistingContact" id="DGT-aA-VAh">
-                        <barButtonItem key="rightBarButtonItem" title="Edit" id="amf-GD-HXJ"/>
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="amf-GD-HXJ">
+                            <connections>
+                                <action selector="EditButtonPressed:" destination="epH-Eq-HSO" id="ZC5-28-iTX"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="ExistingContactTitle" destination="DGT-aA-VAh" id="xK8-9h-ecr"/>
@@ -188,21 +210,31 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.90412463340000004" green="0.92913756560000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="New Contact" id="uFV-hk-DGA">
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="Kwm-Zc-BDP"/>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="Kwm-Zc-BDP">
+                            <connections>
+                                <action selector="pressedSaveButton:" destination="IMu-Fx-0kV" id="TwJ-EM-Xa9"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="NewContactSaveButton" destination="Kwm-Zc-BDP" id="Ilw-QT-iL4"/>
+                        <outlet property="firstNameOutlet" destination="LUT-6i-SuN" id="B6p-Fy-lOi"/>
+                        <outlet property="lastNameOutlet" destination="Ugg-nF-yuh" id="PLs-UZ-jjv"/>
+                        <outlet property="phoneNumberOutlet" destination="tI6-Yb-G6G" id="XkD-nE-ypv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FXd-79-Fw4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2360.8000000000002" y="-766.86656671664173"/>
         </scene>
-        <!--Item-->
+        <!--Contacts-->
         <scene sceneID="D1e-YC-3Vl">
             <objects>
                 <navigationController id="Igp-oy-XUQ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" image="first" id="5x7-A5-W8u"/>
+                    <tabBarItem key="tabBarItem" title="Contacts" image="Contacts" id="5x7-A5-W8u"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="82l-uH-5y4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -218,19 +250,20 @@
         <!--Call History-->
         <scene sceneID="cDo-6D-BWz">
             <objects>
-                <tableViewController id="HKQ-Vr-5bJ" sceneMemberID="viewController">
+                <tableViewController id="HKQ-Vr-5bJ" customClass="CallHistoryTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="bd3-tL-34y">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="0.96808947362757403" blue="0.89688185865559489" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="pyF-XL-lok">
                                 <rect key="frame" x="0.0" y="92" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pyF-XL-lok" id="5EI-dY-Had">
-                                    <frame key="frameInset" width="375" height="44"/>
+                                    <frame key="frameInset" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="1" green="0.96808947359999997" blue="0.89688185870000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -244,11 +277,11 @@
             </objects>
             <point key="canvasLocation" x="1874" y="693"/>
         </scene>
-        <!--Item-->
+        <!--Call History-->
         <scene sceneID="Jnr-dh-R3e">
             <objects>
                 <navigationController id="frm-W8-fVX" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="hza-UD-4vz"/>
+                    <tabBarItem key="tabBarItem" title="Call History" image="History" id="hza-UD-4vz"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="fOe-PP-VC1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -282,7 +315,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Call" width="128" height="128"/>
+        <image name="Contacts" width="22" height="20"/>
+        <image name="History" width="22" height="22"/>
         <image name="PlusSign" width="22" height="22"/>
-        <image name="first" width="30" height="30"/>
     </resources>
 </document>

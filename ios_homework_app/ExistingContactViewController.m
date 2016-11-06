@@ -23,10 +23,37 @@
 @synthesize phoneNumberOutlet;
 @synthesize contact;
 @synthesize ExistingContactTitle;
+@synthesize saveEditButtonLabel;
+@synthesize editMode;
+
+- (IBAction)EditButtonPressed:(UIBarButtonItem *)sender {
+    if (!editMode)
+    {
+        editMode=YES;
+        saveEditButtonLabel.title=@"Save";
+        firstNameOutlet.enabled=YES;
+        lastNameOutlet.enabled=YES;
+        phoneNumberOutlet.enabled=YES;
+    }
+    else if (editMode)
+    {
+        editMode=NO;
+        saveEditButtonLabel.title=@"Edit";
+        firstNameOutlet.enabled=NO;
+        lastNameOutlet.enabled=NO;
+        phoneNumberOutlet.enabled=NO;
+        contact.firstName=firstNameOutlet.text;
+        contact.lastName=lastNameOutlet.text;
+        contact.phoneNumber=phoneNumberOutlet.text;
+        ExistingContactTitle.title=[NSString stringWithFormat:@"%@ %@", contact.firstName, contact.lastName];
+    }
+
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    editMode=NO;
     ExistingContactTitle.title=[NSString stringWithFormat:@"%@ %@", contact.firstName, contact.lastName];
     firstNameOutlet.text=contact.firstName;
     lastNameOutlet.text=contact.lastName;

@@ -16,5 +16,5 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *saveEditButtonLabel;
 @property (weak, nonatomic) IBOutlet UINavigationItem *ExistingContactTitle;
 @property (strong, nonatomic) ContactData* contact;
-@property (weak, nonatomic) NSString* foo;
+@property BOOL editMode;
 @end

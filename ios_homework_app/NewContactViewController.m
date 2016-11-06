@@ -17,5 +17,26 @@
     // Drawing code
 }
 */
+@synthesize firstNameOutlet;
+@synthesize lastNameOutlet;
+@synthesize phoneNumberOutlet;
+@synthesize delegate;
+
+- (IBAction)pressedSaveButton:(UIBarButtonItem *)sender {
+    ContactData* contact= [[ContactData alloc] init];
+    contact.firstName=firstNameOutlet.text;
+    contact.lastName=lastNameOutlet.text;
+    contact.phoneNumber=phoneNumberOutlet.text;
+    [delegate newContactData:contact];
+    [self.navigationController popViewControllerAnimated:YES];
+}
+- (void) viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    firstNameOutlet.text=nil;
+    lastNameOutlet.text=nil;
+    phoneNumberOutlet.text=nil;
+    
+}
 
 @end

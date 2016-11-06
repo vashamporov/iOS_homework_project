@@ -14,6 +14,7 @@
 		844E38B01DCDFABA00894BD9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 844E38AE1DCDFABA00894BD9 /* LaunchScreen.storyboard */; };
 		847F0C581DCE3E58004EDABE /* NewContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 847F0C571DCE3E58004EDABE /* NewContactViewController.m */; };
 		847F0C5B1DCE420A004EDABE /* ExistingContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 847F0C5A1DCE420A004EDABE /* ExistingContactViewController.m */; };
+		84E341431DCF6AF50077B7DF /* CallHistoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E341421DCF6AF50077B7DF /* CallHistoryTableViewController.m */; };
 		84E88D201DCE14900026AA89 /* ContactListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E88D1F1DCE14900026AA89 /* ContactListTableViewController.m */; };
 		84E88D231DCE15850026AA89 /* ContactTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E88D221DCE15850026AA89 /* ContactTableViewCell.m */; };
 		84E88D261DCE23DA0026AA89 /* ContactData.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E88D251DCE23DA0026AA89 /* ContactData.m */; };
@@ -32,6 +33,8 @@
 		847F0C571DCE3E58004EDABE /* NewContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewContactViewController.m; path = ios_homework_app/NewContactViewController.m; sourceTree = SOURCE_ROOT; };
 		847F0C591DCE420A004EDABE /* ExistingContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExistingContactViewController.h; sourceTree = "<group>"; };
 		847F0C5A1DCE420A004EDABE /* ExistingContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExistingContactViewController.m; sourceTree = "<group>"; };
+		84E341411DCF6AF50077B7DF /* CallHistoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CallHistoryTableViewController.h; sourceTree = "<group>"; };
+		84E341421DCF6AF50077B7DF /* CallHistoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CallHistoryTableViewController.m; sourceTree = "<group>"; };
 		84E88D1E1DCE14900026AA89 /* ContactListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContactListTableViewController.h; path = /Users/admin/Desktop/ios_homework_app/ios_homework_app/ContactListTableViewController.h; sourceTree = "<absolute>"; };
 		84E88D1F1DCE14900026AA89 /* ContactListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ContactListTableViewController.m; path = /Users/admin/Desktop/ios_homework_app/ios_homework_app/ContactListTableViewController.m; sourceTree = "<absolute>"; };
 		84E88D211DCE15850026AA89 /* ContactTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactTableViewCell.h; sourceTree = "<group>"; };
@@ -75,16 +78,18 @@
 				844E38A01DCDFABA00894BD9 /* AppDelegate.h */,
 				844E38A11DCDFABA00894BD9 /* AppDelegate.m */,
 				844E38A91DCDFABA00894BD9 /* Main.storyboard */,
-				84E88D211DCE15850026AA89 /* ContactTableViewCell.h */,
 				847F0C561DCE3E58004EDABE /* NewContactViewController.h */,
 				847F0C571DCE3E58004EDABE /* NewContactViewController.m */,
 				844E38AC1DCDFABA00894BD9 /* Assets.xcassets */,
+				84E88D211DCE15850026AA89 /* ContactTableViewCell.h */,
 				84E88D221DCE15850026AA89 /* ContactTableViewCell.m */,
 				84E88D241DCE23DA0026AA89 /* ContactData.h */,
 				84E88D251DCE23DA0026AA89 /* ContactData.m */,
 				844E38B11DCDFABA00894BD9 /* Info.plist */,
 				84E88D1F1DCE14900026AA89 /* ContactListTableViewController.m */,
 				84E88D1E1DCE14900026AA89 /* ContactListTableViewController.h */,
+				84E341411DCF6AF50077B7DF /* CallHistoryTableViewController.h */,
+				84E341421DCF6AF50077B7DF /* CallHistoryTableViewController.m */,
 				844E38AE1DCDFABA00894BD9 /* LaunchScreen.storyboard */,
 				844E389D1DCDFABA00894BD9 /* Supporting Files */,
 			);
@@ -170,6 +175,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84E341431DCF6AF50077B7DF /* CallHistoryTableViewController.m in Sources */,
 				847F0C581DCE3E58004EDABE /* NewContactViewController.m in Sources */,
 				847F0C5B1DCE420A004EDABE /* ExistingContactViewController.m in Sources */,
 				84E88D201DCE14900026AA89 /* ContactListTableViewController.m in Sources */,

@@ -95,16 +95,43 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="rHd-C3-JNM" userLabel="LastNameTextField">
+                                <frame key="frameInset" minX="26" minY="458" width="321" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Hob-S5-xBf" userLabel="PhoneNumberTextField">
+                                <frame key="frameInset" minX="20" minY="561" width="327" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="1lX-bf-7ND" userLabel="FirstNameTextField">
+                                <frame key="frameInset" minX="26" minY="355" width="321" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="ExistingContact" id="DGT-aA-VAh">
                         <barButtonItem key="rightBarButtonItem" title="Edit" id="amf-GD-HXJ"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="ExistingContactTitle" destination="DGT-aA-VAh" id="xK8-9h-ecr"/>
+                        <outlet property="firstNameOutlet" destination="1lX-bf-7ND" id="OnM-Oq-Vy8"/>
+                        <outlet property="lastNameOutlet" destination="rHd-C3-JNM" id="CWo-RC-oW4"/>
+                        <outlet property="phoneNumberOutlet" destination="Hob-S5-xBf" id="SEt-cl-wzt"/>
+                        <outlet property="saveEditButtonLabel" destination="amf-GD-HXJ" id="7Gd-ga-wEC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZQb-pX-zHy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2383" y="-28"/>
+            <point key="canvasLocation" x="2381.5999999999999" y="-28.335832083958024"/>
         </scene>
         <!--New Contact-->
         <scene sceneID="opE-zu-5ZM">

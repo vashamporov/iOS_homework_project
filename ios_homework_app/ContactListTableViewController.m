@@ -9,6 +9,7 @@
 #import "ContactListTableViewController.h"
 #import "ContactData.h"
 #import "ExistingContactViewController.h"
+#import "AppDelegate.h"
 @implementation ContactListTableViewController
 
 /*
@@ -39,7 +40,6 @@
 }
 - (void) viewWillAppear:(BOOL)animated
 {
-    [super viewWillAppear:animated];
     [self.tableView reloadData];
 }
 -(void) newContactData:(ContactData *)contact
@@ -56,13 +56,14 @@
 }
 - (UITableViewCell*) tableView: (UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
-    UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier: @"TestCell"];
+    UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier: @"ContactCell"];
     UILabel *contactName=(UILabel*) [cell viewWithTag:101];
     [contactName setText:[NSString stringWithFormat:@"%@, %@", [[ContactDataArr objectAtIndex:[indexPath row]] lastName], [[ContactDataArr objectAtIndex:[indexPath row]] firstName]]];
     UILabel *contactPhone=(UILabel*) [cell viewWithTag:200];
     [contactPhone setText:[[ContactDataArr objectAtIndex:[indexPath row]] phoneNumber]];
     return cell;
 }
+
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
@@ -79,22 +80,15 @@
         dest.delegate=self;
     }
 }
-- (void) OutgoingCall:(ContactData*)CallContact
-{
-    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Outgoing Call"                                                                   message:[NSString stringWithFormat:@"Calling %@ %@...\n%@", CallContact.firstName, CallContact.lastName, CallContact.phoneNumber]                                                           preferredStyle:UIAlertControllerStyleAlert];
-    
-    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {}];
-    
-    [alert addAction:defaultAction];
-    [self presentViewController:alert animated:YES completion:nil];
-}
+
 - (IBAction)CallButtonPressed:(id)sender {
     
     CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:self.tableView];
     NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonPosition];
+    ContactLogData* CallContact=[ContactDataArr objectAtIndex:indexPath.row];
     
-    ContactData* CallContact=[ContactDataArr objectAtIndex:indexPath.row];
-    OutgoingCall:CallContact;
+    AppDelegate* appDelegate=(AppDelegate*) [[UIApplication sharedApplication] delegate];
+    [appDelegate outgoingCall:CallContact atController:self];
     
 }
 

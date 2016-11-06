@@ -7,21 +7,32 @@
 //
 
 #import "CallHistoryTableViewController.h"
-
+#import "ContactListTableViewController.h"
+#import "AppDelegate.h"
 @interface CallHistoryTableViewController ()
 
 @end
 
 @implementation CallHistoryTableViewController
+@synthesize CallLogArrRef;
+@synthesize dateFormatter;
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    AppDelegate* appDelegate=[[UIApplication sharedApplication] delegate];
+    CallLogArrRef=[appDelegate CallLogArr];
+    dateFormatter=[[NSDateFormatter alloc] init];
+    dateFormatter.locale=[[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+- (void) viewWillAppear:(BOOL)animated
+{
+    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -31,25 +42,43 @@
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
+- (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
 }
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
+- (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [CallLogArrRef count];
 }
-
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+- (UITableViewCell*) tableView: (UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath
+{
+    UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier: @"LogCell"];
     
-    // Configure the cell...
+    UILabel *callNameLabel=(UILabel*) [cell viewWithTag:300];
+    [callNameLabel setText:[NSString stringWithFormat:@"%@ %@", [[CallLogArrRef objectAtIndex:[indexPath row]] firstName], [[CallLogArrRef objectAtIndex:[indexPath row]] lastName]]];
+    
+    UILabel *callTimeLabel=(UILabel*) [cell viewWithTag:401];
+    dateFormatter.dateStyle=NSDateFormatterNoStyle;
+    dateFormatter.timeStyle=NSDateFormatterShortStyle;
+    [callTimeLabel setText:[dateFormatter stringFromDate:[[CallLogArrRef objectAtIndex:[indexPath row]] callStartTime]]];
+    
+    UILabel *callDateLabel=(UILabel*) [cell viewWithTag:402];
+    dateFormatter.dateStyle=NSDateFormatterMediumStyle;
+    dateFormatter.timeStyle=NSDateFormatterNoStyle;
+    [callDateLabel setText:[dateFormatter stringFromDate:[[CallLogArrRef objectAtIndex:[indexPath row]] callStartTime]]];
+    
+    UILabel *callDurationLabel=(UILabel*) [cell viewWithTag:403];
+    [callDurationLabel setText:[NSString stringWithFormat:@"%d s", [[CallLogArrRef objectAtIndex:[indexPath row]] callDuration]]];
+    
     
     return cell;
 }
-*/
+
+- (void) tableView: (UITableView *) tableView didSelectRowAtIndexPath: (NSIndexPath *) IndexPath
+{
+    AppDelegate* appDelegate=(AppDelegate*) [[UIApplication sharedApplication] delegate];
+    [appDelegate outgoingCall:[CallLogArrRef objectAtIndex:[IndexPath row]] atController:self];
+}
 
 /*
 // Override to support conditional editing of the table view.

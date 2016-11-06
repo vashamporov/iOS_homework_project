@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface CallHistoryTableViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource>
-
+@property (strong) NSMutableArray* CallLogArrRef;
+@property (retain) NSDateFormatter* dateFormatter;
 @end

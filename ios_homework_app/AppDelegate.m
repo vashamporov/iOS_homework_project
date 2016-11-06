@@ -13,14 +13,48 @@
 @end
 
 @implementation AppDelegate
+@synthesize CallLogArr;
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    if (!CallLogArr) CallLogArr=[[NSMutableArray alloc] init];
     return YES;
 }
 
 
+-(void) logCall: (ContactLogData*) logEntry;
+{
+    [CallLogArr insertObject:logEntry atIndex:0];
+ 
+}
+
+-(void) outgoingCall: (BasicData*) basicContact atController : (UIViewController*) viewController
+{
+    ContactLogData* logEntry=[[ContactLogData alloc] init];
+    logEntry.firstName=basicContact.firstName;
+    logEntry.lastName=basicContact.lastName;
+    logEntry.phoneNumber=basicContact.phoneNumber;
+    logEntry.callStartTime=[[NSDate alloc] init];
+    
+    
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Outgoing Call"                                                                   message:[NSString stringWithFormat:@"Calling %@ %@...\n%@", basicContact.firstName, basicContact.lastName, basicContact.phoneNumber]                                                           preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
+                                    {
+                                        logEntry.callDuration= - [logEntry.callStartTime timeIntervalSinceNow];
+                                        [self logCall:logEntry];
+                                        [viewController viewWillAppear:NO];
+                                    }];
+                                    
+    [alert addAction:defaultAction];
+    [viewController presentViewController:alert animated:YES completion:nil];
+                                    
+}
+                                    
+
+
+                                    
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.

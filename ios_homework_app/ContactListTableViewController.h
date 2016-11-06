@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "NewContactViewController.h"
+#import "ContactLogData.h"
 
 @interface ContactListTableViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource, NewContactDelegate>
 @property (strong, nonatomic) NSMutableArray *ContactDataArr;
+
 
 @end

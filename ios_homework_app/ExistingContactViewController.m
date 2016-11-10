@@ -56,19 +56,65 @@
         editImageButton.userInteractionEnabled=NO;
         deleteContactButton.hidden=YES;
         deleteContactButton.userInteractionEnabled=NO;
+        
+        [self replaceImage:contactImageOutlet.image forContact:contact];
         contact.firstName=firstNameOutlet.text;
         contact.lastName=lastNameOutlet.text;
         contact.phoneNumber=phoneNumberOutlet.text;
         ExistingContactTitle.title=[NSString stringWithFormat:@"%@ %@", contact.firstName, contact.lastName];
+        
     }
 
 }
 - (IBAction)deleteContactButtonPressed:(UIButton *)sender {
+    [self deleteImage:[[ContactArrRef objectAtIndex:index] imagePath]];
     [ContactArrRef removeObjectAtIndex:index];
     [self.navigationController popViewControllerAnimated:YES];
 }
+- (IBAction)editImageButtonPressed:(UIButton *)sender {
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    picker.allowsEditing = YES;
+    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    
+    [self presentViewController:picker animated:YES completion:NULL];
+}
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
+    self.contactImageOutlet.image = chosenImage;
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+}
 
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+}
+- (BOOL) deleteImage:(NSString *)path
+{
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    BOOL success=NO;
+    NSError* err;
+    if ([fileManager fileExistsAtPath:path])
+        success = [fileManager removeItemAtPath:path error:&err];
+    return success;
+}
 
+- (BOOL) replaceImage: (UIImage*) image forContact: (ContactData*) cont
+{
+    BOOL success=[self deleteImage:cont.imagePath];
+    
+    if (success) cont.imagePath=nil;
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    
+    NSString *filePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"photo_%@%@%@.png",cont.firstName, cont.lastName, cont.phoneNumber]];
+    
+    success=success & [UIImagePNGRepresentation(image) writeToFile:cont.imagePath atomically:YES];
+    
+    if (success) cont.imagePath=filePath;
+    return success;
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];

@@ -8,7 +8,8 @@
 
 #import "BasicData.h"
 
-@interface ContactLogData : BasicData
+@interface ContactLogData : BasicData <NSCoding>
 @property NSDate* callStartTime;
 @property NSInteger callDuration;
 @end
+

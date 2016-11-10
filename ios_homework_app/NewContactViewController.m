@@ -21,7 +21,12 @@
 @synthesize lastNameOutlet;
 @synthesize phoneNumberOutlet;
 @synthesize delegate;
-@synthesize contactImage;
+
+
+- (void) viewDidLoad
+{
+    NSLog(@"loaded");
+}
 
 - (IBAction)pressedSaveButton:(UIBarButtonItem *)sender {
     ContactData* contact= [[ContactData alloc] init];
@@ -32,7 +37,7 @@
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *filePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"photo_%@%@%@.png",contact.firstName, contact.lastName, contact.phoneNumber]];
     
-    [UIImagePNGRepresentation(contactImage.image) writeToFile:filePath atomically:YES];
+    //[UIImagePNGRepresentation(contactImageOutlet.image) writeToFile:filePath atomically:YES];
     
     contact.imagePath=filePath;
     
@@ -51,7 +56,7 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
-    self.contactImage.image = chosenImage;
+    //self.contactImage.imageOutlet = chosenImage;
     [picker dismissViewControllerAnimated:YES completion:NULL];
 }
 

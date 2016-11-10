@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ContactData.h"
 
-@interface ExistingContactViewController : UIViewController
+@interface ExistingContactViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *firstNameOutlet;
 @property (weak, nonatomic) IBOutlet UITextField *lastNameOutlet;
 @property (weak, nonatomic) IBOutlet UITextField *phoneNumberOutlet;
@@ -22,4 +22,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *editImageButton;
 @property (weak, nonatomic) IBOutlet UIButton *deleteContactButton;
 @property BOOL editMode;
+- (BOOL) deleteImage: (NSString*) path;
+- (BOOL) replaceImage: (UIImage*) image forContact: (ContactData*) contact;
 @end

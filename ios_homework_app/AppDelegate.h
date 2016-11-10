@@ -12,6 +12,8 @@
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 -(void) logCall: (ContactLogData*) logEntry;
 -(void) outgoingCall: (BasicData*) basicContact atController : (UIViewController*) viewController;
+-(void) saveData;
+-(void) loadData;
 @property (strong, nonatomic) UIWindow *window;
 @property (strong) NSMutableArray* CallLogArr;
 @property (strong) NSMutableArray* ContactDataArrBase;

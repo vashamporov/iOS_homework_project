@@ -67,9 +67,9 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Contacts List" id="rmT-hu-IXR" userLabel="ContactsList">
-                        <barButtonItem key="rightBarButtonItem" image="PlusSign" id="6Bz-Na-dTC" userLabel="AddNewContact">
+                        <barButtonItem key="rightBarButtonItem" image="PlusSign" id="6Bz-Na-dTC" userLabel="AddContact">
                             <connections>
-                                <segue destination="IMu-Fx-0kV" kind="show" identifier="NewContactSegue" id="nHu-dG-Nq5"/>
+                                <segue destination="IMu-Fx-0kV" kind="show" id="Nay-gs-L00"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -141,6 +141,9 @@
                                 <frame key="frameInset" minX="261" minY="331" width="79" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Edit Image"/>
+                                <connections>
+                                    <action selector="editImageButtonPressed:" destination="epH-Eq-HSO" eventType="touchUpInside" id="xMW-BL-0U3"/>
+                                </connections>
                             </button>
                             <button hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0V6-eZ-exN" userLabel="Delete Contact Button">
                                 <frame key="frameInset" minX="39" minY="331" width="116" height="30"/>
@@ -229,10 +232,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b0r-Uc-hu3">
-                                <frame key="frameInset" minX="37" minY="72" width="301" height="255"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4as-be-KnP">
                                 <frame key="frameInset" minX="251" minY="335" width="87" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -252,7 +251,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="contactImage" destination="b0r-Uc-hu3" id="WmJ-lW-LFS"/>
                         <outlet property="firstNameOutlet" destination="LUT-6i-SuN" id="B6p-Fy-lOi"/>
                         <outlet property="lastNameOutlet" destination="Ugg-nF-yuh" id="PLs-UZ-jjv"/>
                         <outlet property="phoneNumberOutlet" destination="tI6-Yb-G6G" id="XkD-nE-ypv"/>
@@ -260,7 +258,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FXd-79-Fw4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2360.8000000000002" y="-766.86656671664173"/>
+            <point key="canvasLocation" x="2417" y="-738"/>
         </scene>
         <!--Contacts-->
         <scene sceneID="D1e-YC-3Vl">

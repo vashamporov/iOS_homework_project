@@ -8,6 +8,6 @@
 
 #import "BasicData.h"
 
-@interface ContactData : BasicData
+@interface ContactData : BasicData <NSCoding>
 @property NSString* imagePath;
 @end

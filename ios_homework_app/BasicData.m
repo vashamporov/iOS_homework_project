@@ -9,5 +9,5 @@
 #import "BasicData.h"
 
 @implementation BasicData
-
+@synthesize firstName, lastName, phoneNumber;
 @end

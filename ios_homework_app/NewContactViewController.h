@@ -15,6 +15,10 @@
 @end
 
 @interface NewContactViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+
+- (void)registerForKeyboardNotifications;
+- (void)deregisterFromKeyboardNotifications;
+
 @property (weak, nonatomic) id<NewContactDelegate> delegate;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *NewContactSaveButton;
 

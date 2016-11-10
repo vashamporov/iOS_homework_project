@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="92" width="375" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="B98-ey-Mog" id="y25-In-WkF">
-                                    <frame key="frameInset" width="375" height="60"/>
+                                    <frame key="frameInset" width="375" height="59"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rwD-Sg-te9">
@@ -69,7 +69,7 @@
                     <navigationItem key="navigationItem" title="Contacts List" id="rmT-hu-IXR" userLabel="ContactsList">
                         <barButtonItem key="rightBarButtonItem" image="PlusSign" id="6Bz-Na-dTC" userLabel="AddContact">
                             <connections>
-                                <segue destination="IMu-Fx-0kV" kind="show" id="Nay-gs-L00"/>
+                                <segue destination="IMu-Fx-0kV" kind="show" identifier="NewContactSegue" id="Nay-gs-L00"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -240,17 +240,23 @@
                                     <action selector="addImageButtonPressed:" destination="IMu-Fx-0kV" eventType="touchUpInside" id="IDF-NF-yZE"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NJW-FP-MER">
+                                <frame key="frameInset" minX="37" minY="72" width="300" height="255"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.90412463340000004" green="0.92913756560000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="New Contact" id="uFV-hk-DGA">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="L3C-Nn-xU0">
                             <connections>
-                                <action selector="pressedSaveButton:" destination="IMu-Fx-0kV" id="KGE-jD-vqk"/>
+                                <action selector="pressedSaveButton:" destination="IMu-Fx-0kV" id="Huf-vB-QGW"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="NewContactSaveButton" destination="L3C-Nn-xU0" id="vhH-4O-QEZ"/>
+                        <outlet property="contactImageOutlet" destination="NJW-FP-MER" id="yEU-Tj-Rne"/>
                         <outlet property="firstNameOutlet" destination="LUT-6i-SuN" id="B6p-Fy-lOi"/>
                         <outlet property="lastNameOutlet" destination="Ugg-nF-yuh" id="PLs-UZ-jjv"/>
                         <outlet property="phoneNumberOutlet" destination="tI6-Yb-G6G" id="XkD-nE-ypv"/>
@@ -258,7 +264,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FXd-79-Fw4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2417" y="-738"/>
+            <point key="canvasLocation" x="2416.8000000000002" y="-738.08095952023996"/>
         </scene>
         <!--Contacts-->
         <scene sceneID="D1e-YC-3Vl">
@@ -290,7 +296,7 @@
                                 <rect key="frame" x="0.0" y="92" width="375" height="101"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pyF-XL-lok" id="5EI-dY-Had">
-                                    <frame key="frameInset" width="375" height="101"/>
+                                    <frame key="frameInset" width="375" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="300" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a9g-38-MwA">
@@ -331,7 +337,13 @@
                             <outlet property="delegate" destination="HKQ-Vr-5bJ" id="BCa-LT-unb"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Call History" id="cvO-Wg-PrB"/>
+                    <navigationItem key="navigationItem" title="Call History" id="cvO-Wg-PrB">
+                        <barButtonItem key="rightBarButtonItem" title="Clear" id="Eqs-ku-vuX">
+                            <connections>
+                                <action selector="clearButtonPressed:" destination="HKQ-Vr-5bJ" id="Jx1-tF-yWd"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7kZ-t8-xZM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

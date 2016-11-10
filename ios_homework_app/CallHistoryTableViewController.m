@@ -79,6 +79,10 @@
     AppDelegate* appDelegate=(AppDelegate*) [[UIApplication sharedApplication] delegate];
     [appDelegate outgoingCall:[CallLogArrRef objectAtIndex:[IndexPath row]] atController:self];
 }
+- (IBAction)clearButtonPressed:(UIBarButtonItem *)sender {
+    [CallLogArrRef removeAllObjects];
+    [self.tableView reloadData];
+}
 
 /*
 // Override to support conditional editing of the table view.

@@ -21,6 +21,7 @@
 @synthesize lastNameOutlet;
 @synthesize phoneNumberOutlet;
 @synthesize delegate;
+@synthesize contactImageOutlet;
 
 
 - (void) viewDidLoad
@@ -37,7 +38,8 @@
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *filePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"photo_%@%@%@.png",contact.firstName, contact.lastName, contact.phoneNumber]];
     
-    //[UIImagePNGRepresentation(contactImageOutlet.image) writeToFile:filePath atomically:YES];
+    BOOL success=NO;
+    success=[UIImagePNGRepresentation(contactImageOutlet.image) writeToFile:filePath atomically:YES];
     
     contact.imagePath=filePath;
     
@@ -50,13 +52,12 @@
     picker.delegate = self;
     picker.allowsEditing = YES;
     picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-    
     [self presentViewController:picker animated:YES completion:NULL];
 }
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
-    //self.contactImage.imageOutlet = chosenImage;
+    self.contactImageOutlet.image = chosenImage;
     [picker dismissViewControllerAnimated:YES completion:NULL];
 }
 

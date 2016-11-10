@@ -20,30 +20,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
-    
-    NSString *callLogFile = [documentsDirectory stringByAppendingPathComponent:@"CallLog.dat"];
-    /*if (!CallLogArr) CallLogArr=[[NSMutableArray alloc] initWithContentsOfFile:callLogFile];
-    
-    NSString *contactsFile = [documentsDirectory stringByAppendingPathComponent:@"Contacts.dat"];
-    if (!ContactDataArrBase) ContactDataArrBase=[[NSMutableArray alloc] initWithContentsOfFile:contactsFile];*/
-    if (!CallLogArr) CallLogArr=[[NSMutableArray alloc] init];
-    if (!ContactDataArrBase) {
-        ContactDataArrBase = [[NSMutableArray alloc] init];
-        ContactData* obj=[[ContactData alloc] init];
-        obj.firstName=@"Ivan";
-        obj.lastName=@"Danko";
-        obj.phoneNumber=@"+79105861337";
-        [ContactDataArrBase addObject:obj];
-        
-        ContactData* obj2=[[ContactData alloc] init];
-        obj2.firstName=@"John";
-        obj2.lastName=@"Kruger";
-        obj2.phoneNumber=@"+79115861337";
-        [ContactDataArrBase addObject:obj2];
-    }
-
+    [self loadData];
     return YES;
 }
 
@@ -85,11 +62,9 @@
         CallLogArr = [unarchiver decodeObjectForKey:@"CallLogArr"];
         [unarchiver finishDecoding];
     }
-    else
-    {
-        if (!CallLogArr) CallLogArr=[[NSMutableArray alloc] init];
-        if (!ContactDataArrBase) ContactDataArrBase = [[NSMutableArray alloc] init];
-    }
+    if (!CallLogArr) CallLogArr=[[NSMutableArray alloc] init];
+    if (!ContactDataArrBase) ContactDataArrBase = [[NSMutableArray alloc] init];
+    
 }
 
 -(void) outgoingCall: (BasicData*) basicContact atController : (UIViewController*) viewController

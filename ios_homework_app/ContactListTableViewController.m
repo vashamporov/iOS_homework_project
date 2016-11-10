@@ -54,7 +54,13 @@
 {
     UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier: @"ContactCell"];
     UILabel *contactName=(UILabel*) [cell viewWithTag:101];
-    [contactName setText:[NSString stringWithFormat:@"%@, %@", [[ContactDataArr objectAtIndex:[indexPath row]] lastName], [[ContactDataArr objectAtIndex:[indexPath row]] firstName]]];
+    NSString* text=nil;
+    NSString* fname=[[ContactDataArr objectAtIndex:[indexPath row]] firstName];
+    NSString* lname=[[ContactDataArr objectAtIndex:[indexPath row]] lastName];
+    if (fname.length==0) text=lname;
+    else if (lname.length==0) text=fname;
+    else text=[NSString stringWithFormat:@"%@, %@", lname, fname];
+    [contactName setText:text];
     UILabel *contactPhone=(UILabel*) [cell viewWithTag:200];
     [contactPhone setText:[[ContactDataArr objectAtIndex:[indexPath row]] phoneNumber]];
     return cell;

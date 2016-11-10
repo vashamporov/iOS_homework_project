@@ -104,15 +104,16 @@
 {
     BOOL success=[self deleteImage:cont.imagePath];
     
-    if (success) cont.imagePath=nil;
+    cont.imagePath=nil;
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     
-    NSString *filePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"photo_%@%@%@.png",cont.firstName, cont.lastName, cont.phoneNumber]];
+    NSString *filePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"photo_%@%@%@.png",firstNameOutlet.text, lastNameOutlet.text, phoneNumberOutlet.text]];
     
-    success=success & [UIImagePNGRepresentation(image) writeToFile:cont.imagePath atomically:YES];
+    success=[UIImagePNGRepresentation(image) writeToFile:filePath atomically:YES];
     
-    if (success) cont.imagePath=filePath;
+    if (success)
+        cont.imagePath=filePath;
     return success;
 }
 - (void)viewDidLoad
@@ -128,7 +129,5 @@
     lastNameOutlet.enabled=NO;
     phoneNumberOutlet.enabled=NO;
     contactImageOutlet.image=[UIImage imageWithContentsOfFile:contact.imagePath];
-    
-    
 }
 @end
